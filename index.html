@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- <!-- <link rel="stylesheet" href="my_css.css"> -->
+<link rel="stylesheet" href="my_css.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500" rel="stylesheet">
 
 
@@ -65,8 +65,8 @@
 
             else  { var streamElement = $('<div>');
             streamElement.attr('class', 'streams_display');
-            streamElement.append($('<img>').attr({height:"70",src:x.stream.channel.logo,class:"logo_small" }));
-            streamElement.append($('<p>').text(x.stream.channel.display_name));
+            streamElement.append($('<img>').attr({height:"50",src:x.stream.channel.logo,class:"logo_small" }));
+            streamElement.append($('<p>').text(x.stream.channel.display_name).attr('class', "channel_name_stream"));
             streamElement.append($('<img>').attr('src',x.stream.preview.large));
 
 
