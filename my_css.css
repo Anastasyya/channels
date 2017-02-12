@@ -1,7 +1,11 @@
+.border{border: 1px solid red;}
+
 .logo_small{
-  display: inline-block;
-  border: 1px solid red;
+
 }
 .channel_name_stream {
-display: inline-block;
+display: inline;
+}
+.stream_preview{
+  
 }
