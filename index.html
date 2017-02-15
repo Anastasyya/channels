@@ -75,6 +75,7 @@
             streamElement.append($('<p>').text(x.stream.channel.display_name).attr('class', "channel_name_stream"));
             streamElement.append($('<img>').attr({width:"487",src:x.stream.preview.large}).addClass('img-responsive stream_preview'));
             streamElement.addClass('col-lg-6 col-md-6 col-sm-12 col-xs-12');
+            streamElement.wrapInner('<a href="' + x.stream.channel.url + '" />');
             streamElement.append($('<p>').text(x.stream.game));
 
             streamsList.append(streamElement);
