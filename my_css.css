@@ -1,5 +1,59 @@
 .border{border: 1px solid red;}
 
+
+
+html {height: 100%;}
+
+body {/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1c1c1c+0,271d32+50,383838+100 */
+background: #1c1c1c; /* Old browsers */
+background: -moz-linear-gradient(top,  #1c1c1c 0%, #271d32 50%, #383838 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #1c1c1c 0%,#271d32 50%,#383838 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #1c1c1c 0%,#271d32 50%,#383838 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c1c1c', endColorstr='#383838',GradientType=0 ); /* IE6-9 */
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  font-family: Roboto, sans-serif;}
+/*Fonts----------------------------------------*/
+h1{
+text-transform: uppercase;
+font-size: 2.1rem;
+color: #696868;
+}
+
+.offline, .online{
+  text-align: left;
+}
+/*Layout----------------------------------------*/
+.col-lg-6, .col-md-6, .col-sm-12, .col-xs-12{
+padding-left: 0px;
+}
+
+.col-lg-2, .col-md-2, .col-sm-6, .col-xs-6 {
+  padding-left: 0px;
+  padding-bottom: 5rem;
+}
+.col-sm-6, .col-xs-6{
+  padding-right: 5rem;
+}
+.online{
+  padding-bottom: 2rem;
+}
+.col-lg-2, .col-md-2 {
+  padding-right: 3rem;
+}
+/*Elements----------------------------------------*/
+.stream_head{
+  background-color: red;
+  padding: 0px;
+  margin: 0px;
+  display: inline-block;
+}
+hr{
+  border-color: #3C3C3C;
+  margin: 5rem 2rem 3rem 0rem;
+}
 .logo_small{
 
 }
@@ -10,6 +64,8 @@ display: inline;
 
 }
 
+
+/*Play button*/
 .play-button {
     height: 40px;
     width: 65px;

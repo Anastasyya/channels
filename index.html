@@ -17,15 +17,40 @@
 <div class="row">
 <div class="col-md-1 col-sm-1 col-xs-1"></div>
 <div class="col-md-10 col-sm-10 col-xs-10">
+  <h1>Watch Streams</h1>
   <div class="streamsList"></div>
+
   </div>
   <div class="col-md-1 col-sm-1 col-xs-1"></div>
 </div>
 
 <div class="row">
-<div class="col-md-1 col-sm-1 col-xs-1 border"></div>
+<div class="col-md-1 col-sm-1 col-xs-1"></div>
+<div class="col-md-10 col-sm-10 col-xs-10">
+  <hr>
+  </div>
+  <div class="col-md-1 col-sm-1 col-xs-1"></div>
+</div>
+
+<div class="row">
+<div class="col-md-1 col-sm-1 col-xs-1"></div>
+<div class="col-md-10 col-sm-10 col-xs-10">
+  <h1>Channels</h1>
+  <div class="channelsList"></div>
+  </div>
+  <div class="col-md-1 col-sm-1 col-xs-1"></div>
+</div>
+<div class="row">
+<div class="col-md-1 col-sm-1 col-xs-1"></div>
 <div class="col-md-10 col-sm-10 col-xs-10 border">
-  <div class="channelsList border"></div>
+  <h1>Channels</h1>
+  <div class="stream_head">
+    <img src="https://i.imgsafe.org/584ed22d2d.png" alt="">
+    <p style="display:inline">Header</p>
+  <p style="display:inline-block">Body</p>
+
+<img src="https://i.imgsafe.org/58498e22d7.png" style="display:block">
+</div>
   </div>
   <div class="col-md-1 col-sm-1 col-xs-1"></div>
 </div>
@@ -54,11 +79,10 @@
               dataType: 'jsonp',
                     success: function (x){
                     var channelElement = $('<div>');
-                    channelElement.addClass('class', 'offline');
                     channelElement.append($('<img>').attr('width', 305).attr('src', x.logo).addClass('img-responsive'));
                     channelElement.append($('<p>').text(x.display_name));
                     channelElement.wrapInner('<a href="' + x.url + '" />');
-                    channelElement.addClass('col-lg-2 col-md-2 col-sm-6 col-xs-6');
+                    channelElement.addClass('col-lg-2 col-md-2 col-sm-6 col-xs-6 offline border align-self-stretch');
                     channelsList.append(channelElement);
                     }
                 });
@@ -71,21 +95,22 @@
 
             else  { var streamElement = $('<div>');
             streamElement.attr('class', 'streams_display');
-            streamElement.append($('<img>').attr({height:"50",src:x.stream.channel.logo,class:"logo_small" }));
-            streamElement.append($('<p>').text(x.stream.channel.display_name).attr('class', "channel_name_stream"));
+            streamElement.append($('<img>').attr({height:"70",src:x.stream.channel.logo,class:"channel_logo_stream" }));
+            streamElement.append($('<p>').text(x.stream.channel.display_name).addClass("channel_name_stream"));
+            streamElement.append($('<p>').text(x.stream.game).addClass('stream_name_stream'));
             streamElement.append($('<img>').attr({width:"487",src:x.stream.preview.large}).addClass('img-responsive stream_preview'));
             streamElement.addClass('col-lg-6 col-md-6 col-sm-12 col-xs-12');
+            //$(".channel_name_stream", ".channel_logo_stream").wrapAll("<div class='stream_head'></div>");
             streamElement.wrapInner('<a href="' + x.stream.channel.url + '" />');
-            streamElement.append($('<p>').text(x.stream.game));
 
             streamsList.append(streamElement);
 
             var channelElementOn = $('<div>');
-            channelElementOn.addClass('class', 'online');
             channelElementOn.append($('<img>').attr('height', 195).attr('src', x.stream.channel.logo).addClass('img-responsive'));
             channelElementOn.append($('<p>').text(x.stream.channel.display_name));
+            channelElementOn.append($('<p>').text(x.stream.channel.game));
             channelElementOn.wrapInner('<a href="' + x.stream.channel.url + '" />');
-            channelElementOn.addClass('col-lg-2 col-md-2 col-sm-6 col-xs-6')
+            channelElementOn.addClass('col-lg-2 col-md-2 col-sm-6 col-xs-6 online border align-self-stretch')
             channelsList.append(channelElementOn);
 
             }
