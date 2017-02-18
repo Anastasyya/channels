@@ -15,21 +15,57 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c1c1c', end
     background-repeat: no-repeat;
     background-attachment: fixed;
   font-family: Roboto, sans-serif;}
+
+.header {
+    background-color: #09090A;
+    padding: 0;
+
+  }
+
+
 /*Fonts----------------------------------------*/
 h1{
 text-transform: uppercase;
 font-size: 2.1rem;
-color: #696868;
+color: #565656;
+}
+p{
+  line-height: 70%;
 }
 
 .offline, .online{
   text-align: left;
 }
+
+.channel_name_stream {
+  margin-top: 20px;
+  color: #3F3F3F;
+  font-size: 1.8rem;
+}
+.stream_name_stream{
+  color: #5E5E5E;
+  font-size: 1.4rem;
+}
+.channel_name_channel{
+  margin-top: 16px;
+  color: #8F6AD6;
+  font-size: 1.8rem;
+}
+.stream_name_channel{
+  color: #5C5C5C;
+  font-size: 1.4rem;
+}
 /*Layout----------------------------------------*/
+.img_center {
+  margin: 2rem auto;
+}
+
 .col-lg-6, .col-md-6, .col-sm-12, .col-xs-12{
 padding-left: 0px;
 }
-
+.col-lg-6, .col-md-6{
+  margin-top: 2.5rem;
+}
 .col-lg-2, .col-md-2, .col-sm-6, .col-xs-6 {
   padding-left: 0px;
   padding-bottom: 5rem;
@@ -38,32 +74,58 @@ padding-left: 0px;
   padding-right: 5rem;
 }
 .online{
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 .col-lg-2, .col-md-2 {
   padding-right: 3rem;
 }
 /*Elements----------------------------------------*/
-.stream_head{
-  background-color: red;
-  padding: 0px;
-  margin: 0px;
-  display: inline-block;
+a:hover {text-decoration: none; }
+.menu{
+  background-color: rgba(90, 59, 146, 0.1);
+  margin-top: 2.5rem;
+  margin-bottom: 3rem;
 }
 hr{
   border-color: #3C3C3C;
   margin: 5rem 2rem 3rem 0rem;
 }
-.logo_small{
-
+/*Stream*/
+.stream_display{
+  background-color: #CCC5D5;
+  padding: 0px;
+  display: inline-block;
 }
-.channel_name_stream {
-display: inline;
-}
-.stream_preview{
-
+.channel_logo_stream{
+  float: left;
+  margin: 8px 10px 8px 8px;
 }
 
+/*Switcher*/
+ul {
+    list-style-type: none;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    font-size: 1.8rem;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: #565656;
+    text-transform: uppercase;
+}
+li:hover {
+  padding-bottom: 2.4rem;
+  border-bottom:1px solid #8F6AD6;
+  color: #8F6AD6;
+}
+.activated {
+  padding-bottom: 2.4rem;
+  border-bottom:1px solid #8F6AD6;
+  color: #8F6AD6;
+}
 
 /*Play button*/
 .play-button {
@@ -72,10 +134,13 @@ display: inline;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
     position: relative;
+    left:21rem;
+    bottom:15rem;
+    padding: 0;
 }
 
 .play-button:hover {
-    background-color: rgba(0, 173, 239, 0.9);
+    background-color: rgba(143, 106, 214, 0.9);
 }
 
 .play-button:after {

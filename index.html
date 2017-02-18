@@ -15,6 +15,11 @@
   <div class="container-fluid">
 
 <div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12 header"><img src="https://i.imgsafe.org/7fd6e92d63.png" class="img-responsive img_center">
+  </div>
+</div>
+
+<div class="row">
 <div class="col-md-1 col-sm-1 col-xs-1"></div>
 <div class="col-md-10 col-sm-10 col-xs-10">
   <h1>Watch Streams</h1>
@@ -28,106 +33,126 @@
 <div class="col-md-1 col-sm-1 col-xs-1"></div>
 <div class="col-md-10 col-sm-10 col-xs-10">
   <hr>
+    <h1>Channels</h1>
   </div>
   <div class="col-md-1 col-sm-1 col-xs-1"></div>
 </div>
 
-<div class="row">
-<div class="col-md-1 col-sm-1 col-xs-1"></div>
-<div class="col-md-10 col-sm-10 col-xs-10">
-  <h1>Channels</h1>
+
+  <div class="row menu">
+  <div class="col-md-1 col-sm-1 col-xs-1"></div>
+      <div class="col-md-10 col-sm-10 col-xs-10">
+        <ul>
+          <li id="all">All</li>
+          <li id="on">Online</li>
+        </ul>
+      </div>
+        <div class="col-md-1 col-sm-1 col-xs-1"></div>
+    </div>
+
+
+  <div class="row">
+    <div class="col-md-1 col-sm-1 col-xs-1"></div>
+    <div class="col-md-10 col-sm-10 col-xs-10">
   <div class="channelsList"></div>
   </div>
   <div class="col-md-1 col-sm-1 col-xs-1"></div>
 </div>
-<div class="row">
-<div class="col-md-1 col-sm-1 col-xs-1"></div>
-<div class="col-md-10 col-sm-10 col-xs-10 border">
-  <h1>Channels</h1>
-  <div class="stream_head">
-    <img src="https://i.imgsafe.org/584ed22d2d.png" alt="">
-    <p style="display:inline">Header</p>
-  <p style="display:inline-block">Body</p>
 
-<img src="https://i.imgsafe.org/58498e22d7.png" style="display:block">
-</div>
-  </div>
-  <div class="col-md-1 col-sm-1 col-xs-1"></div>
-</div>
+
 
   <script type="text/javascript">
 
   $(document).ready(function(){
+
 
   var streamsList = $('.streamsList');
   var channelsList = $('.channelsList');
   var channels = ["ESL_SC2","OgamingSC2","cretetion","freecodecamp","storbeck","habathcx","RobotCaleb","noobs2ninjas"];
 
   $.each(channels, function(index, value){
-     $.ajax ({
-     url:'https://wind-bow.gomix.me/twitch-api/streams/' + value,
-   type: "GET",
- dataType: 'jsonp',
+       $.ajax ({
+       url:'https://wind-bow.gomix.me/twitch-api/streams/' + value,
+       type: "GET",
+       dataType: 'jsonp',
 
- success: function (x){
+               success: function (x){
 
-              if (x.stream == null){
+                 if (x.stream == null){
 
-                $.ajax ({
-                  url:'https://wind-bow.gomix.me/twitch-api/channels/' + value,
-                type: "GET",
-              dataType: 'jsonp',
+                    $.ajax ({
+                    url:'https://wind-bow.gomix.me/twitch-api/channels/' + value,
+                    type: "GET",
+                    dataType: 'jsonp',
                     success: function (x){
                     var channelElement = $('<div>');
                     channelElement.append($('<img>').attr('width', 305).attr('src', x.logo).addClass('img-responsive'));
-                    channelElement.append($('<p>').text(x.display_name));
+                    channelElement.append($('<p>').text(x.display_name).addClass('channel_name_channel'));
                     channelElement.wrapInner('<a href="' + x.url + '" />');
-                    channelElement.addClass('col-lg-2 col-md-2 col-sm-6 col-xs-6 offline border align-self-stretch');
+                    channelElement.addClass('col-lg-2 col-md-2 col-sm-6 col-xs-6 offline');
                     channelsList.append(channelElement);
                     }
-                });
+                    });
 
 
-              }
-
-
-
-
-            else  { var streamElement = $('<div>');
-            streamElement.attr('class', 'streams_display');
-            streamElement.append($('<img>').attr({height:"70",src:x.stream.channel.logo,class:"channel_logo_stream" }));
-            streamElement.append($('<p>').text(x.stream.channel.display_name).addClass("channel_name_stream"));
-            streamElement.append($('<p>').text(x.stream.game).addClass('stream_name_stream'));
-            streamElement.append($('<img>').attr({width:"487",src:x.stream.preview.large}).addClass('img-responsive stream_preview'));
-            streamElement.addClass('col-lg-6 col-md-6 col-sm-12 col-xs-12');
-            //$(".channel_name_stream", ".channel_logo_stream").wrapAll("<div class='stream_head'></div>");
-            streamElement.wrapInner('<a href="' + x.stream.channel.url + '" />');
-
-            streamsList.append(streamElement);
-
-            var channelElementOn = $('<div>');
-            channelElementOn.append($('<img>').attr('height', 195).attr('src', x.stream.channel.logo).addClass('img-responsive'));
-            channelElementOn.append($('<p>').text(x.stream.channel.display_name));
-            channelElementOn.append($('<p>').text(x.stream.channel.game));
-            channelElementOn.wrapInner('<a href="' + x.stream.channel.url + '" />');
-            channelElementOn.addClass('col-lg-2 col-md-2 col-sm-6 col-xs-6 online border align-self-stretch')
-            channelsList.append(channelElementOn);
-
-            }
+                }
 
 
 
 
- },
-error: function() {
-  return "oops! try again later";
-}
+                else  { var streamElement = $('<div>');
 
- });
+                  streamElement.append($('<img>').attr({height:"70",src:x.stream.channel.logo,class:"channel_logo_stream" }));
+                  streamElement.append($('<p>').text(x.stream.channel.display_name).addClass("channel_name_stream"));
+                  streamElement.append($('<p>').text(x.stream.game).addClass('stream_name_stream'));
+                  streamElement.append($('<img>').attr({width:"487",src:x.stream.preview.large}).addClass('img-responsive stream_preview'));
+                  streamElement.append($('<div>').addClass('play-button'));
+                  streamElement.wrapInner('<a href="' + x.stream.channel.url + '" />');
+                  streamElement.wrapInner($('<div>').addClass('stream_display'));
+                  streamElement.addClass('col-lg-6 col-md-6 col-sm-12 col-xs-12');
+                  streamsList.append(streamElement);
+
+                  var channelElementOn = $('<div>');
+                  channelElementOn.append($('<img>').attr('height', 195).attr('src', x.stream.channel.logo).addClass('img-responsive'));
+                  channelElementOn.append($('<p>').html(x.stream.channel.display_name + "  &#9679;").addClass('channel_name_channel'));
+                  channelElementOn.append($('<p>').text(x.stream.channel.game).addClass('stream_name_channel'));
+                  channelElementOn.wrapInner('<a href="' + x.stream.channel.url + '" />');
+                  channelElementOn.addClass('col-lg-2 col-md-2 col-sm-6 col-xs-6 online')
+                  channelsList.append(channelElementOn);
+
+                }
+
+
+
+
+              },
+        error: function() {
+        return "oops! try again later";
+        }
+
+      });
 
   });
 
-    });
+
+
+$('#on, #all').css("cursor", "pointer");
+$('#all').addClass("activated");
+$('#on').on({'click': function(){
+      $(".offline").hide();
+      $('#on').addClass("activated");
+      $('#all').removeClass("activated");
+}
+});
+
+$('#all').on({'click': function(){
+    $(".offline").show();
+    $('#all').addClass("activated");
+    $('#on').removeClass("activated");
+}
+});
+
+});
   </script>
   </div>
 </body>
