@@ -95,6 +95,7 @@ hr{
   background-color: #CCC5D5;
   padding: 0px;
   display: inline-block;
+  position: relative;
 }
 .channel_logo_stream{
   float: left;
@@ -133,9 +134,9 @@ li:hover {
     width: 65px;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
-    position: relative;
-    left:21rem;
-    bottom:15rem;
+    position: absolute;
+    left:45%;
+    top:50%;
     padding: 0;
 }
 
